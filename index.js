@@ -38,7 +38,7 @@ webhooksRouter.post('/', function (req, res) {
   if (event) {
     // Try running the event and end response with 204 (no content).
     try {
-      runEvent(event, false, false);
+      runEvent(event, true, false);
     } catch (e) {
       console.error(e.stack);
     }
