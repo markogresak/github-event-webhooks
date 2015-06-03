@@ -13,6 +13,8 @@ try {
   // Try to read SSL config file and parse it as JSON.
   conf = JSON.parse(fs.readFileSync(path.join(__dirname, './ssl-config.json')).toString());
 } catch (e) {
+  console.error(e.stack);
+  console.log('Error occured while reading SSL config file, proceeding without SSL.');
   // If there was an error while reading, proceed without setting a value to conf.
   conf = undefined;
 }
