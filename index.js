@@ -1,6 +1,7 @@
 'use strict';
 var express = require('express');
 var bodyParser = require('body-parser');
+var runEvent = require('./run-event');
 
 var port = 9100;
 
@@ -19,6 +20,7 @@ webhooksRouter.post('/', function (req, res) {
   var event = req.headers['X-Github-Event'];
   if (event) {
     // Run event and end response with 204 (no content).
+    runEvent(event);
     res.status(204).end();
   } else {
     // Event is not set, end response with 400 (bad request).
