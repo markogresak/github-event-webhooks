@@ -1,0 +1,29 @@
+{
+  "name": "github-event-webhooks",
+  "version": "1.0.0",
+  "description": "GitHub Webhooks handler",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --require chai --require sinon --require sinon-chai --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/markogresak/github-event-webhooks"
+  },
+  "author": "Marko Gresak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/markogresak/github-event-webhooks/issues"
+  },
+  "homepage": "https://github.com/markogresak/github-event-webhooks",
+  "dependencies": {
+    "body-parser": "^1.12.4",
+    "express": "^4.12.4"
+  },
+  "devDependencies": {
+    "chai": "^2.3.0",
+    "mocha": "^2.2.5",
+    "sinon": "^1.14.1",
+    "sinon-chai": "^2.7.0"
+  }
+}
