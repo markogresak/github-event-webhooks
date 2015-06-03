@@ -30,8 +30,13 @@ webhooksRouter.post('/', function (req, res) {
   // Read event from header.
   var event = req.headers['X-Github-Event'];
   if (event) {
-    // Run event and end response with 204 (no content).
-    runEvent(event);
+    // Try running the event and end response with 204 (no content).
+    try {
+      runEvent(event);
+    }
+    catch (e) {
+      console.error(e.stack);
+    }
     res.status(204).end();
   } else {
     // Event is not set, end response with 400 (bad request).
