@@ -55,6 +55,15 @@ describe('run-script', function () {
     done();
   });
 
+  it('should not throw an error if there was error with exec but called with throwExecErr = false', function (done) {
+    var execMock = function (path, cb) {
+      cb.bind(cb, Error()).should.not.throw(Error);
+    };
+    revertRewire = runScript.__set__('exec', execMock);
+    runScript(eventName, false, false);
+    done();
+  });
+
   it('should not output stdout if called with logStdout = false', function (done) {
     var execMock = function (path, cb) {
       var stdoutText = 'stdout';
