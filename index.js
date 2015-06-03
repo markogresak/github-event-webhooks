@@ -12,6 +12,11 @@ var conf;
 try {
   // Try to read SSL config file and parse it as JSON.
   conf = JSON.parse(fs.readFileSync(path.join(__dirname, './ssl-config.json')).toString());
+  var sslConfigData = JSON.parse(fs.readFileSync(path.join(__dirname, './ssl-config.json')).toString());
+  sslConfig = {
+    key: fs.readFileSync(sslConfigData.key).toString(),
+    cert: fs.readFileSync(sslConfigData.cert).toString()
+  };
 } catch (e) {
   console.error(e.stack);
   console.log('Error occured while reading SSL config file, proceeding without SSL.');
