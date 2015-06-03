@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 // Set route for webhooks POST request.
-var webhooksRouter = express.webhooksRouter();
+var webhooksRouter = express.Router();
 webhooksRouter.post('/', function (req, res) {
   // Read event from header.
   var event = req.headers['X-Github-Event'];
@@ -55,4 +55,4 @@ if (conf && typeof conf.key === 'string' && typeof conf.cert === 'string') {
   app.listen(port);
 }
 
-console.log('webhooksRouter listening on ' + port);
+console.log('webhooks router listening on ' + port);
