@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({
 var webhooksRouter = express.Router();
 webhooksRouter.post('/', function (req, res) {
   // Read event from header.
-  var event = req.headers['X-Github-Event'];
+  var event = req.headers['x-github-event'];
   if (event) {
     // Try running the event and end response with 204 (no content).
     try {
